@@ -40,7 +40,7 @@ Benefit uncertainty is handled separately. For a stated need, unverified benefit
 
 ## Distinguish list order from the highlighted recommendation
 
-The plan highlighted as a recommendation can differ from the first plan in the ordered list. Additional checks consider cost-data completeness, quality indicators, known language targeting, and—for someone requesting vision coverage—confirmed absence of routine eye-exam coverage.
+The plan highlighted as a recommendation can differ from the first plan in the ordered list. Additional checks include cost-data completeness, quality indicators, and—for someone requesting vision coverage—confirmed absence of routine eye-exam coverage.
 
 These checks do not remove the affected plans from the ranked list. Certain checks relax when no candidates remain eligible under them. Missing information is treated differently from a confirmed negative finding.
 

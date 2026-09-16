@@ -12,19 +12,19 @@ An earlier scoring and preference-ordering stage still matters to duplicate sele
 
 ## 2. Ordering the candidates
 
-The active ordering compares these criteria in sequence. A later criterion does not overturn an earlier difference:
+The main coverage and cost priorities are compared in sequence. A later criterion in this list does not overturn an earlier difference:
 
 1. Higher number of carrier-confirmed doctor matches.
 2. Higher combined number of doctor and prescription matches.
 3. Higher doctor-match count, then higher prescription-match count.
 4. Higher number of available doctor cross-reference checks.
 5. A usable internal cost calculation before an unavailable one, then a lower internal cost measure.
-6. A known language-target match, then a higher CMS star rating when both compared plans have numeric ratings.
-7. The incoming order when the preceding comparisons tie.
+
+Additional tie-breakers can distinguish plans after those priorities. These include a higher CMS star rating when both compared plans have numeric ratings. The incoming order is preserved when all active comparisons tie. This summary does not enumerate every tie-breaker.
 
 Doctor match totals can include confirmed matches, likely matches, and acknowledged cross-reference matches. They are capped at the number of doctors entered. An available cross-reference check is a separate, weaker signal than an acknowledged match. Unknown counts contribute no match credit; they do not establish a confirmed coverage loss.
 
-When both plans lack a cost calculation within an otherwise equal coverage comparison, language and star comparisons can still distinguish them. An unrated plan is neutral in the pairwise star comparison; a missing rating is not a zero-star rating.
+When both plans lack a cost calculation within an otherwise equal coverage comparison, tie-breakers can still distinguish them. An unrated plan is neutral in the pairwise star comparison; a missing rating is not a zero-star rating.
 
 ## 3. Internal cost calculation
 
@@ -78,13 +78,12 @@ Unpriceable uncovered prescriptions, missing cash estimates for known uncovered 
 
 ## 4. Selecting the highlighted plan
 
-The highlighted plan is generally the first ranked candidate with a usable cost calculation that passes the applicable selection checks:
+The highlighted plan is generally the first ranked candidate with a usable cost calculation that passes the applicable selection checks. Those checks include:
 
 - A quality check based on a star-rating threshold and a low-performing indicator. Unrated plans remain eligible but are flagged.
-- A language check: known targeting that conflicts with the session language can make a plan ineligible for the default recommendation. No classification is neutral.
 - A vision check: when a member asks for vision coverage without a priceable need, confirmed absence of routine exam coverage can make a plan ineligible. Unknown exam coverage does not trigger that exclusion.
 
-These checks affect selection rather than list order. The quality check relaxes if every candidate fails it; the language and vision checks have corresponding fallback rules if no candidate survives the preceding checks and the added check. A surviving candidate with incomplete cost data can still prevent a check from relaxing.
+These checks affect selection rather than list order. The quality check relaxes if every candidate fails it. The vision check has a corresponding fallback if no candidate survives the preceding checks and the added check. A surviving candidate with incomplete cost data can still prevent a check from relaxing. This summary does not enumerate every selection check.
 
 The returned list may be shortened. The engine preserves the selected candidate in that list when needed, so displayed position and full-pool rank can differ.
 

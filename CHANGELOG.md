@@ -1,5 +1,9 @@
 # Methodology documentation history
 
+## September 16, 2026 — editorial revision
+
+Refined the explanation of tie-breakers and selection checks following expert feedback. Clarified that these summaries do not enumerate every rule. No scoring behavior changed.
+
 ## September 16, 2026 — initial review baseline
 
 Documented the active Medicare Advantage comparison engine: candidate selection, coverage evidence, internal cost calculation, supplemental-benefit assumptions, missing data, selection checks, and current-plan comparisons.
